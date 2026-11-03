@@ -108,6 +108,86 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 ul{list-style:none}
 ::selection{background:var(--blush-deep)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--clay);outline-offset:3px;border-radius:6px}
+/* ============================================================
+   ВИДЕО-ГАЛЕРЕЯ (ТИКТОК ФОРМАТ)
+   ============================================================ */
+.video-section {
+  padding: 60px 20px;
+  background-color: var(--cream); /* Используем ваш фирменный цвет фона */
+}
+
+.video-section .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.video-title {
+  font-family: var(--font-display); /* Ваша красивая гарнитура Cormorant */
+  font-size: 2.5rem;
+  color: var(--cocoa);
+  margin-bottom: 10px;
+}
+
+.video-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--cocoa-soft);
+  margin-bottom: 40px;
+}
+
+/* Сетка: строго 3 колонки на десктопе */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; /* Красивый отступ между видео */
+  justify-content: center;
+}
+
+/* Элегантное обрамление под стиль вашего сайта */
+.video-wrapper {
+  width: 100%;
+  max-width: 300px; /* Ограничение ширины для вертикального формата */
+  margin: 0 auto;
+  
+  border-radius: 20px; /* Скругление углов */
+  border: 6px solid #ffffff; /* Белая аккуратная рамка */
+  box-shadow: var(--shadow); /* Используем вашу фирменную мягкую тень */
+  
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 9 / 16; /* Фиксированные пропорции TikTok 9:16 */
+  transition: transform 0.3s var(--ease); /* Плавность при наведении */
+}
+
+/* Интерактивный эффект при наведении мыши */
+.video-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Видео заполняет рамку без искажений */
+  display: block;
+}
+
+/* Адаптивность под мобильные телефоны */
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 видео в ряд на планшетах */
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .video-grid {
+    grid-template-columns: 1fr; /* 1 видео в ряд на смартфонах */
+  }
+  .video-wrapper {
+    max-width: 270px; /* Чуть уменьшаем ширину на маленьких экранах */
+  }
+}
 
 /* ============================================================
    2. УТИЛИТЫ
@@ -587,29 +667,25 @@ body.menu-open{overflow:hidden}
     </div>
   </section>
 
-    <section class="video-section">
+<section class="video-section">
   <div class="container">
-    <h2 class="h2 section-title">Мои работы в движении ✨</h2>
-    <p class="video-subtitle">Посмотрите, как чисто выглядит маникюр и как круто переливаются блики</p>
+    <h2 class="video-title">Немножко нюдовых видео ✨</h2>
+    <p class="video-subtitle">Посмотрите на идеальную чистоту и переливы бликов</p>
     
-    <div class="video-grid">
-      <!-- Видео 1 -->
-      <div class="video-wrapper">
-        <video src="21040191572548.mp4" playsinline loop muted controls preload="metadata"></video>
-      </div>
-      
-      <!-- Видео 2 -->
-      <div class="video-wrapper">
-        <video src="21040190655044.mp4" playsinline loop muted controls preload="metadata"></video>
-      </div>
-
-      <!-- Видео 3 (можно убрать, если у вас всего два видео) -->
-      <div class="video-wrapper">
-        <video src="20714143156804.mp4" playsinline loop muted controls preload="metadata"></video>
-      </div>
-    </div>
+<div class="video-grid">
+  <div class="video-wrapper">
+    <video src="20714143156804.mp4" playsinline autoplay loop muted controls preload="metadata"></video>
+  </div>
+  <div class="video-wrapper">
+    <video src="21040190655044.mp4" playsinline autoplay loop muted controls preload="metadata"></video>
+  </div>
+  <div class="video-wrapper">
+    <video src="21040191572548.mp4" playsinline autoplay loop muted controls preload="metadata"></video>
+  </div>
+</div>
   </div>
 </section>
+
 
   <!-- ================= БЕГУЩАЯ СТРОКА ================= -->
   <div class="marquee" aria-hidden="true">
