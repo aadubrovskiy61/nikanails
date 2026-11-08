@@ -414,48 +414,44 @@ body.menu-open{overflow:hidden}
 .fact{display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:14px 16px;font-size:.8rem;font-weight:700;line-height:1.4;box-shadow:0 10px 22px -14px rgba(169,132,103,.35)}
 .fact .icon{color:var(--clay)}
 
-    /* ============================================================
-   8.1. ГАЛЕРЕЯ САНКНИЖКИ
-   ============================================================ */
-.san-gallery {
-  margin-top: 48px;
-  border-top: 2px dashed rgba(169, 132, 103, 0.2);
-  padding-top: 32px;
+/* --- Новые стили для отображения санкнижки под фактами --- */
+.san-single-block {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
 }
-.san-gallery-title {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--cocoa);
-  margin-bottom: 20px;
+.san-card {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-.san-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-}
-.san-item {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
+  gap: 16px;
   background: #fff;
-  box-shadow: var(--shadow);
-  border: 4px solid #fff;
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 22px -14px rgba(169, 132, 103, 0.35);
+  text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  aspect-ratio: 3/4;
 }
-.san-item:hover {
-  transform: translateY(-4px);
+.san-card:hover {
+  transform: translateY(-2px);
   box-shadow: 0 14px 30px -12px rgba(169, 132, 103, 0.45);
 }
-.san-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.san-card .icon {
+  color: var(--clay);
+  font-size: 1.2rem;
 }
+.san-card-text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cocoa);
+}
+.san-card-preview {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(169, 132, 103, 0.2);
+}
+
 
 /* ============================================================
    9. ПРАЙС-ЛИСТ
@@ -909,11 +905,21 @@ body.menu-open{overflow:hidden}
     <br>Пишите прямо сейчас в сообщения, чтобы подобрать удобное для вас время. Количество свободных окошек ограничено!
   </p>
 
-  <div class="facts">
-    <div class="fact"><svg class="icon icon--sm"><use href="#i-check"/></svg> Медицинская стерилизация инструментов</div>
-    <div class="fact"><svg class="icon icon--sm"><use href="#i-drop"/></svg> Гипоаллергенные премиум-материалы</div>
-    <div class="fact"><svg class="icon icon--sm"><use href="#i-heart"/></svg> Индивидуальный подбор формы и оттенка</div>
-  </div>
+<div class="facts">
+  <div class="fact"><svg class="icon icon--sm"><use href="#i-check"/></svg> Медицинская стерилизация инструментов</div>
+  <div class="fact"><svg class="icon icon--sm"><use href="#i-drop"/></svg> Гипоаллергенные премиум-материалы</div>
+  <div class="fact"><svg class="icon icon--sm"><use href="#i-heart"/></svg> Индивидуальный подбор формы и оттенка</div>
+</div>
+
+<!-- Блок с санитарной книжкой -->
+<div class="san-single-block">
+  <a href="Санкнижка.jpg" target="_blank" class="san-card">
+    <span class="icon">📋</span>
+    <span class="san-card-text">Санитарная книжка (действующая)</span>
+    <img src="Санкнижка.jpg" alt="Санкнижка" class="san-card-preview">
+  </a>
+</div>
+
 </div>
 
     </div>
