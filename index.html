@@ -414,43 +414,46 @@ body.menu-open{overflow:hidden}
 .fact{display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:14px 16px;font-size:.8rem;font-weight:700;line-height:1.4;box-shadow:0 10px 22px -14px rgba(169,132,103,.35)}
 .fact .icon{color:var(--clay)}
 
-/* --- Новые стили для отображения санкнижки под фактами --- */
-.san-single-block {
-  margin-top: 24px;
-  display: flex;
-  justify-content: center;
+/* --- Стили для открытого фото санкнижки --- */
+.san-open-block {
+  margin-top: 30px;
+  max-width: 320px; /* Ограничиваем размер, чтобы фото не было гигантским */
 }
-.san-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: #fff;
-  border-radius: 18px;
-  padding: 14px 16px;
-  box-shadow: 0 10px 22px -14px rgba(169, 132, 103, 0.35);
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.san-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px -12px rgba(169, 132, 103, 0.45);
-}
-.san-card .icon {
-  color: var(--clay);
-  font-size: 1.2rem;
-}
-.san-card-text {
+.san-open-title {
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--cocoa);
+  color: var(--cocoa-soft);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-.san-card-preview {
-  width: 44px;
-  height: 44px;
+.san-open-title .icon {
+  color: var(--clay);
+}
+.san-photo-wrapper {
+  position: relative;
+  width: 100%;
+}
+/* Повторяем красивый эффект подложки, как у главного фото */
+.san-photo-bg {
+  position: absolute;
+  inset: 0;
+  transform: translate(12px, 12px);
+  background: var(--sand);
+  border-radius: 24px;
+  opacity: 0.7;
+}
+.san-photo-wrapper img {
+  position: relative;
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid rgba(169, 132, 103, 0.2);
+  border-radius: 24px;
+  border: 4px solid #fff;
+  box-shadow: var(--shadow);
 }
+
 
 
 /* ============================================================
@@ -911,15 +914,15 @@ body.menu-open{overflow:hidden}
   <div class="fact"><svg class="icon icon--sm"><use href="#i-heart"/></svg> Индивидуальный подбор формы и оттенка</div>
 </div>
 
-<!-- Блок с санитарной книжкой -->
-<div class="san-single-block">
-  <a href="Санкнижка.jpg" target="_blank" class="san-card">
-    <span class="icon">📋</span>
-    <span class="san-card-text">Санитарная книжка (действующая)</span>
-    <img src="Санкнижка.jpg" alt="Санкнижка" class="san-card-preview">
-  </a>
-</div>
-
+<!-- Открытое фото санитарной книжки -->
+<div class="san-open-block">
+  <div class="san-open-title">
+    <span class="icon">📋</span> Действующая медицинская книжка
+  </div>
+  <div class="san-photo-wrapper">
+    <div class="san-photo-bg"></div>
+    <img src="Санкнижка.jpg" alt="Санитарная книжка">
+  </div>
 </div>
 
     </div>
