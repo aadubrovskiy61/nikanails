@@ -957,107 +957,84 @@ body.menu-open{overflow:hidden}
         <p>Больше работ и свежие идеи пришлю в MAX при переписке.</p>
       </div>
 
-<!-- Галерея внизу сайта со встроенными стилями -->
+<!-- Новая галерея в стиле Pinterest со встроенными стилями -->
 <style>
-  /* Контейнер галереи */
+  /* Контейнер галереи разбивает контент на вертикальные колонки */
   .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    grid-auto-flow: dense; 
-    gap: 16px; 
+    column-count: 3; /* Количество колонок на ПК */
+    column-gap: 20px; /* Расстояние между колонками */
     padding: 20px 0;
-    font-family: sans-serif;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  /* Общие стили для всех фото */
+  /* Карточка с фото */
   .g-item {
-    margin: 0;
+    display: inline-block; /* Важно: предотвращает разрыв карточки между колонками */
+    width: 100%;
+    margin: 0 0 20px 0; /* Отступ снизу до следующей фотки */
     padding: 0;
     position: relative;
+    border-radius: 20px; /* Мягкие круглые углы */
     overflow: hidden;
-    border-radius: 16px; /* Красивые скругленные углы */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Легкая эстетичная тень */
-    background: #f3f3f3;
-    height: 280px; /* Базовая высота для обычных фото */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Глубокая мягкая тень */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+    background: #ffffff;
   }
 
-  /* Эффект приподнимания при наведении */
+  /* Стильный интерактивный эффект: фото слегка увеличивается при наведении */
   .g-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    z-index: 2;
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   }
 
-  /* Картинка заполняет весь блок без искажения пропорций */
+  /* Изображение полностью адаптируется по ширине и сохраняет свою реальную высоту */
   .g-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; 
+    height: auto; /* Фотографии НЕ обрезаются, пропорции остаются «родными» */
     display: block;
   }
 
-  /* --- Стили для разного размера карточек --- */
-  
-  /* g-big: Очень большая карточка (двойная ширина и высота) */
-  .g-item.g-big {
-    grid-column: span 2;
-    grid-row: span 2;
-    height: 576px; /* 280px + 280px + 16px gap */
+  /* Адаптивность для планшетов */
+  @media (max-width: 900px) {
+    .gallery {
+      column-count: 2; /* 2 колонки на экранах средних размеров */
+      column-gap: 16px;
+    }
+    .g-item {
+      margin-bottom: 16px;
+    }
   }
 
-  /* g-tall: Вытянутая по вертикали карточка */
-  .g-item.g-tall {
-    grid-row: span 2;
-    height: 576px;
-  }
-
-  /* g-wide: Вытянутая по горизонтали карточка */
-  .g-item.g-wide {
-    grid-column: span 2;
-  }
-
-  /* Адаптив под мобильные телефоны */
+  /* Адаптивность для мобильных телефонов */
   @media (max-width: 600px) {
     .gallery {
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    .g-item, .g-item.g-big, .g-item.g-tall, .g-item.g-wide {
-      grid-column: span 1 !important;
-      grid-row: span 1 !important;
-      height: 320px !important; /* Одинаковая удобная высота на смартфонах */
+      column-count: 1; /* На смартфонах фото идут в один красивый ряд друг за другом */
     }
   }
 </style>
 
 <div class="gallery">
-  <!-- Большая главная карточка (Дизайн) -->
-  <figure class="g-item g-big reveal">
+  <figure class="g-item reveal">
     <img src="Дизайн.jpg" alt="Дизайн" data-label="Дизайн" onerror="imgFail(this)"> 
   </figure>
 
-  <!-- Обычная карточка -->
   <figure class="g-item reveal">
     <img src="Гель-лак с блестками.jpg" alt="Гель-лак с блестками" data-label="Гель-лак с блестками" onerror="imgFail(this)">
   </figure>
 
-  <!-- Вертикальная высокая карточка (создает прикольную асимметрию) -->
-  <figure class="g-item g-tall reveal">
+  <figure class="g-item reveal">
     <img src="Гель-лак с блестками 2.jpg" alt="Гель-лак с блестками 2" data-label="Гель-лак с блестками 2" onerror="imgFail(this)">
   </figure>
 
-  <!-- Обычная карточка -->
   <figure class="g-item reveal">
     <img src="Маникюр 1.jpg" alt="Маникюр 1" data-label="Маникюр 1" onerror="imgFail(this)">
   </figure>
 
-  <!-- Широкая карточка (занимает два слота в ширину) -->
-  <figure class="g-item g-wide reveal">
+  <figure class="g-item reveal">
     <img src="Маникюр 2.jpg" alt="Маникюр 2" data-label="Маникюр 2" onerror="imgFail(this)">
   </figure>
 
-  <!-- Обычная карточка -->
   <figure class="g-item reveal">
     <img src="Маникюр 3.jpg" alt="Маникюр 3" data-label="Маникюр 3" onerror="imgFail(this)">
   </figure>
