@@ -959,21 +959,19 @@ body.menu-open{overflow:hidden}
 
 <!-- Галерея  -->
 <style>
-  /* Стили для широких рамок: фото растягивается на всю ширину и центрируется */
+  /* Стили для широких рамок */
   .g-item.g-wide {
     position: relative;
-    overflow: hidden; /* Скрывает всё, что выходит за пределы рамки */
+    overflow: hidden;
   }
 
   .g-item.g-wide img {
     width: 100%;
     height: 100%;
-    
-    /* Растягивает фото на всю рамку без искажения пропорций */
     object-fit: cover !important; 
     
-    /* Держит фокус строго по центру (где находятся руки и ногти) */
-    object-position: center center; 
+    /* Сдвигает фото вверх, чтобы кончики ногтей не обрезались */
+    object-position: center 15% !important; 
   }
 </style>
 
