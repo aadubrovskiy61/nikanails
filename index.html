@@ -959,31 +959,21 @@ body.menu-open{overflow:hidden}
 
 <!-- Галерея  -->
 <style>
-  /* Стили для создания красивого размытого фона у широких фото, чтобы они не обрезались */
+  /* Стили для широких рамок: фото растягивается на всю ширину и центрируется */
   .g-item.g-wide {
-    background-size: cover;
-    background-position: center;
     position: relative;
-  }
-  
-  /* Эффект размытия заднего плана только для широких картинок */
-  .g-item.g-wide::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: inherit;
-    filter: blur(15px) brightness(0.8); /* Размываем и слегка затемняем фон */
-    transform: scale(1.1);
-    z-index: 1;
+    overflow: hidden; /* Скрывает всё, что выходит за пределы рамки */
   }
 
-  /* Сама картинка ложится поверх размытого фона и видна ЦЕЛИКОМ */
   .g-item.g-wide img {
-    position: relative;
-    z-index: 2;
-    object-fit: contain !important; /* Фото больше НЕ режется по краям */
     width: 100%;
     height: 100%;
+    
+    /* Растягивает фото на всю рамку без искажения пропорций */
+    object-fit: cover !important; 
+    
+    /* Держит фокус строго по центру (где находятся руки и ногти) */
+    object-position: center center; 
   }
 </style>
 
