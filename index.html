@@ -414,6 +414,49 @@ body.menu-open{overflow:hidden}
 .fact{display:flex;align-items:center;gap:12px;background:#fff;border-radius:18px;padding:14px 16px;font-size:.8rem;font-weight:700;line-height:1.4;box-shadow:0 10px 22px -14px rgba(169,132,103,.35)}
 .fact .icon{color:var(--clay)}
 
+    /* ============================================================
+   8.1. ГАЛЕРЕЯ САНКНИЖКИ
+   ============================================================ */
+.san-gallery {
+  margin-top: 48px;
+  border-top: 2px dashed rgba(169, 132, 103, 0.2);
+  padding-top: 32px;
+}
+.san-gallery-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--cocoa);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.san-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+.san-item {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow);
+  border: 4px solid #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 3/4;
+}
+.san-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -12px rgba(169, 132, 103, 0.45);
+}
+.san-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* ============================================================
    9. ПРАЙС-ЛИСТ
    ============================================================ */
