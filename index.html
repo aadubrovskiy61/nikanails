@@ -957,127 +957,51 @@ body.menu-open{overflow:hidden}
         <p>Больше работ и свежие идеи пришлю в MAX при переписке.</p>
       </div>
 
-<!-- Галерея с исправленной структурой и встроенными стилями -->
-<style>
-  /* Контейнер сетки */
-  .gallery {
-    display: grid;
-    /* Создает колонки, подстраивающиеся под ширину экрана */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-flow: dense; 
-    gap: 16px; 
-    padding: 20px 0;
-  }
+<!-- Галерея  -->
+      <div class="gallery">
+        <!-- 1. То самое первое фото, исправленное в начале -->
+        <figure class="g-item g-big reveal">
+          <img src="Дизайн.jpg" alt="Дизайн" data-label="Дизайн" onerror="imgFail(this)"> 
+          <!-- <figcaption>До - После</figcaption> -->
+        </figure>
 
-  /* Общие стили для каждого элемента */
-  .g-item {
-    margin: 0;
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px; /* Мягкое скругление углов */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    height: 280px; /* Базовая высота обычных фото */
-  }
+        <!-- 2. Новое фото: Теплая осень (оригинальный первый элемент после Дизайна) -->
+        <figure class="g-item reveal">
+          <img src="Теплая осень.jpg" alt="Теплая осень" loading="lazy" data-label="Теплая осень" onerror="imgFail(this)">
+          <!-- <figcaption>Теплая осень</figcaption> -->
+        </figure>
 
-  /* Картинка внутри карточки */
-  .g-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Заполняет блок без искажения пропорций */
-    display: block;
-  }
+        <!-- 3. Новое фото: Гель-лак с блестками -->
+        <figure class="g-item reveal">
+          <img src="Гель-лак с блестками.jpg" alt="Гель-лак с блестками" data-label="Гель-лак с блестками" onerror="imgFail(this)">
+          <!-- <figcaption>Гель-лак с блестками</figcaption> -->
+        </figure>
 
-  /* --- Размеры, заданные вашими классами из Git --- */
-  
-  /* g-big: Квадратная большая карточка */
-  .g-item.g-big {
-    grid-column: span 2;
-    grid-row: span 2;
-    height: 576px; /* 280 + 280 + gap */
-  }
+        <!-- 4. Новое фото: Гель-лак с блестками2 -->
+        <figure class="g-item reveal">
+          <img src="Гель-лак с блестками2.jpg" alt="Гель-лак с блестками2" data-label="Гель-лак с блестками2" onerror="imgFail(this)">
+          <!-- <figcaption>Гель-лак с блестками2</figcaption> -->
+        </figure>
 
-  /* g-tall: Вытянутая по вертикали карточка */
-  .g-item.g-tall {
-    grid-row: span 2;
-    height: 576px;
-  }
+        <!-- 5. Новое фото: Маникюр 1 -->
+        <figure class="g-item reveal">
+          <img src="Маникюр 1.jpg" alt="Маникюр 1" data-label="Маникюр 1" onerror="imgFail(this)">
+          <!-- <figcaption>Маникюр 1</figcaption> -->
+        </figure>
 
-  /* g-wide: Вытянутая по горизонтали карточка */
-  .g-item.g-wide {
-    grid-column: span 2;
-  }
+        <!-- 6. Новое фото: Маникюр 2 -->
+        <figure class="g-item reveal">
+          <img src="Маникюр 2.jpg" alt="Маникюр 2" data-label="Маникюр 2" onerror="imgFail(this)">
+          <!-- <figcaption>Маникюр 2</figcaption> -->
+        </figure>
 
-  /* Адаптив: на телефонах все фото становятся аккуратными одинаковыми плитками */
-  @media (max-width: 600px) {
-    .gallery {
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    .g-item, .g-item.g-big, .g-item.g-tall, .g-item.g-wide {
-      grid-column: span 1 !important;
-      grid-row: span 1 !important;
-      height: 300px !important;
-    }
-  }
-</style>
-
-<div class="gallery">
-  <!-- 1. Дизайн (Большая карточка) -->
-  <figure class="g-item g-big reveal">
-    <img src="Дизайн.jpg" alt="Дизайн" data-label="Дизайн" onerror="imgFail(this)"> 
-  </figure>
-
-  <!-- 2. Теплая осень -->
-  <figure class="g-item reveal">
-    <img src="Теплая осень.jpg" alt="Теплая осень" loading="lazy" data-label="Теплая осень" onerror="imgFail(this)">
-  </figure>
-
-  <!-- 3. Гель-лак с блестками -->
-  <figure class="g-item reveal">
-    <img src="Гель-лак с блестками.jpg" alt="Гель-лак с блестками" data-label="Гель-лак с блестками" onerror="imgFail(this)">
-  </figure>
-
-  <!-- 4. Венсдей (Высокая карточка) -->
-  <figure class="g-item g-tall reveal" style="--d:.08s">
-    <img src="Венсдей.jpg" alt="Венсдей" loading="lazy" data-label="Венсдей" onerror="imgFail(this)">
-  </figure>
-
-  <!-- 5. Гель-лак с блестками2 -->
-  <figure class="g-item reveal">
-    <img src="Гель-лак с блестками2.jpg" alt="Гель-лак с блестками2" data-label="Гель-лак с блестками2" onerror="imgFail(this)">
-  </figure>
-
-  <!-- 6. Аккуратный нюд -->
-  <figure class="g-item reveal" style="--d:.16s">
-    <img src="Аккуратный нюд.jpg" alt="Аккуратный нюдовый маникюр" loading="lazy" data-label="Нюд" onerror="imgFail(this)">
-  </figure>
-
-  <!-- 7. Маникюр 1 -->
-  <figure class="g-item reveal">
-    <img src="Маникюр 1.jpg" alt="Маникюр 1" data-label="Маникюр 1" onerror="imgFail(this)">
-  </figure>
-
-  <!-- 8. Дизайн ногтей в горошек (Широкая карточка) -->
-  <figure class="g-item g-wide reveal" style="--d:.24s">
-    <img src="Дизайн ногтей в горошек.jpg" alt="Дизайн ногтей в горошек" loading="lazy" data-label="Горошек" onerror="imgFail(this)">
-  </figure>
-
-  <!-- 9. Маникюр 2 -->
-  <figure class="g-item reveal">
-    <img src="Маникюр 2.jpg" alt="Маникюр 2" data-label="Маникюр 2" onerror="imgFail(this)">
-  </figure>
-
-  <!-- 10. Креативный дизайн с рисунком (Широкая карточка) -->
-  <figure class="g-item g-wide reveal" style="--d:.32s">
-    <img src="Креативный дизайн с рисунком.jpg" alt="Креативный дизайн с рисунком" loading="lazy" data-label="Дизайн с рисунком" onerror="imgFail(this)">
-  </figure>
-
-  <!-- 11. Маникюр 3 -->
-  <figure class="g-item reveal">
-    <img src="Маникюр 3.jpg" alt="Маникюр 3" data-label="Маникюр 3" onerror="imgFail(this)">
-  </figure>
-</div>
+        <!-- 7. Новое фото: Маникюр 3 -->
+        <figure class="g-item reveal">
+          <img src="Маникюр 3.jpg" alt="Маникюр 3" data-label="Маникюр 3" onerror="imgFail(this)">
+          <!-- <figcaption>Маникюр 3</figcaption> -->
+        </figure>
+      </div>
+    </div>
     </div>
   </section>
 
