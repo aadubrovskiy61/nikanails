@@ -958,31 +958,36 @@ body.menu-open{overflow:hidden}
       </div>
 
 <!-- Галерея  -->
-<!-- Корректировка высоты рамок, чтобы не обрезались ногти -->
 <style>
-  /* Увеличиваем базовую высоту для ВСЕХ обычных фото */
-  .gallery .g-item {
-    height: 320px !important; /* Было меньше, теперь рамки стали выше */
+  /* Стили для создания красивого размытого фона у широких фото, чтобы они не обрезались */
+  .g-item.g-wide {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  /* Эффект размытия заднего плана только для широких картинок */
+  .g-item.g-wide::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: inherit;
+    filter: blur(15px) brightness(0.8); /* Размываем и слегка затемняем фон */
+    transform: scale(1.1);
+    z-index: 1;
   }
 
-  /* Для БОЛЬШОЙ карточки (Дизайн) пропорционально увеличиваем высоту */
-  .gallery .g-item.g-big {
-    height: 656px !important; /* 320 + 320 + 16px gap */
-  }
-
-  /* Для ШИРОКИХ карточек делаем высоту больше, чтобы пальцы влезли целиком */
-  .gallery .g-item.g-wide {
-    height: 360px !important; /* Она станет чуть выше остальных и раскроет кадр */
-  }
-
-  /* Возвращаем центрирование, так как рамка стала больше и фото теперь поместится */
-  .gallery .g-item.g-wide img {
-    object-position: center center !important;
+  /* Сама картинка ложится поверх размытого фона и видна ЦЕЛИКОМ */
+  .g-item.g-wide img {
+    position: relative;
+    z-index: 2;
+    object-fit: contain !important; /* Фото больше НЕ режется по краям */
+    width: 100%;
+    height: 100%;
   }
 </style>
 
 <div class="gallery">
-  <!-- РЯД 1 -->
   <!-- 1. Дизайн -->
   <figure class="g-item g-big reveal">
     <img src="Дизайн.jpg" alt="Дизайн" data-label="Дизайн" onerror="imgFail(this)"> 
@@ -993,12 +998,11 @@ body.menu-open{overflow:hidden}
     <img src="Теплая осень.jpg" alt="Теплая осень" loading="lazy" data-label="Теплая осень" onerror="imgFail(this)">
   </figure>
 
-  <!-- 3. Гель-лак с блестками (Теперь рамка выше, ногти не обрежутся) -->
-  <figure class="g-item g-wide reveal">
+  <!-- 3. Гель-лак с блестками (Добавили inline-background для размытого эффекта) -->
+  <figure class="g-item g-wide reveal" style="background-image: url('Гель-лак с блестками.jpg');">
     <img src="Гель-лак с блестками.jpg" alt="Гель-лак с блестками" data-label="Гель-лак с блестками" onerror="imgFail(this)">
   </figure>
 
-  <!-- РЯД 2 -->
   <!-- 4. Гель-лак с блестками 2 -->
   <figure class="g-item reveal">
     <img src="Гель-лак с блестками 2.jpg" alt="Гель-лак с блестками 2" data-label="Гель-лак с блестками 2" onerror="imgFail(this)">
@@ -1009,8 +1013,8 @@ body.menu-open{overflow:hidden}
     <img src="Маникюр 1.jpg" alt="Маникюр 1" data-label="Маникюр 1" onerror="imgFail(this)">
   </figure>
 
-  <!-- 6. Маникюр 2 (Теперь рамка выше, пальцы влезут целиком) -->
-  <figure class="g-item g-wide reveal">
+  <!-- 6. Маникюр 2 (Добавили inline-background для размытого эффекта) -->
+  <figure class="g-item g-wide reveal" style="background-image: url('Маникюр 2.jpg');">
     <img src="Маникюр 2.jpg" alt="Маникюр 2" data-label="Маникюр 2" onerror="imgFail(this)">
   </figure>
 
@@ -1019,6 +1023,7 @@ body.menu-open{overflow:hidden}
     <img src="Маникюр 3.jpg" alt="Маникюр 3" data-label="Маникюр 3" onerror="imgFail(this)">
   </figure>
 </div>
+
 
 
     </div>
